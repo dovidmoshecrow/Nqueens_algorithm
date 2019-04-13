@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+     <canvas id="canv" width="400" height="400"> </canvas>
+    <script>
+        let canv = document.getElementById('canv');
+        let ctx = canv.getContext("2d");
+        
+        for (let x = 0; x < 9; x++) {
+           for (let y = 0; y < 9; y++) {
+               if ( (x + y) % 2 == 0){
+                   ctx.fillStyle = "red";
+               }else{
+                   ctx.fillStyle = "black";
+               }
+               ctx.fillRect(x*50,y*50,50,50);
+           }
+            
+        }
+        let grid = [
+            [true, false, false, false, false, false, false, false],
+            [false, false, false, false, false, false, true, false],
+            [false, false, false, false, true, false, false, false],
+            [false, false, false, false, false, false, false, true],
+            [false, true, false, false, false, false, false, false],
+            [false, false, false, true, false, false, false, false],
+            [false, false, false, false, false, true, false, false],
+            [false, false, true, false, false, false, false, false]
+        ];
+        grid.forEach((e,x) => {
+           e.forEach((el,y) => {
+             if(el){
+                 ctx.fillStyle = "white";
+                 ctx.fillRect(x * 50 + 7,y * 50 +7,10,10);
+             }
+           });
+        })
+    </script>
+</body>
+
+</html>
